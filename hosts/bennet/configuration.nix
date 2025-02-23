@@ -40,23 +40,15 @@
   users.users.amalieem = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
-      alacritty
-      hypridle
-      hyprlock
-      hyprpaper
-      hyprshot
-      pavucontrol
-      swaynotificationcenter
-      tree
-      waybar
-      wofi
+
     ];
   };
 
   programs = {
-    firefox.enable = true;
     steam.enable = true;
+    zsh.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
