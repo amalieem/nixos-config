@@ -11,6 +11,7 @@
     chromium
     element-desktop
     pavucontrol
+    prismlauncher
 
     # Window Manager Extras
     bibata-cursors

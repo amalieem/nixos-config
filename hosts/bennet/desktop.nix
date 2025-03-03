@@ -13,7 +13,9 @@
     nvidiaSettings = true;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement.enable = true;
   };
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   services.displayManager.ly.enable = true;
   services.xserver.enable = true;
@@ -52,6 +54,29 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+  };
+
+  # Dark mode
+  home-manager.users.amalieem = {
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
   };
 }
 

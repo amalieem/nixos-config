@@ -7,7 +7,8 @@
       prezto = {
         enable = true;
         editor = {
-          keymap = "emacs";
+          keymap = "vi";
+          dotExpansion = true;
         };
         prompt = {
           theme = "agnoster";
@@ -26,19 +27,18 @@
           "history-substring-search"
           # "git"
           "autosuggestions"
-          # "syntax-highlighting"
+          "syntax-highlighting"
           "prompt"
         ];
       };
 
       initExtra = ''
-        # Autocomplete ../
-        # zstyle ':completion:*' special-dirs true
       '';
 
       shellAliases = {
         g = "git";
         gst = "git status -sb";
+        sp = "nix-shell --run zsh -p";
       };
     };
   };
